@@ -1,6 +1,5 @@
 # Run Vanilla OSX on AMD Athlon 200GE with OpenCore
 
-Specs
 
 AMD Athlon 200GE with Radeon Vega Graphics
 
