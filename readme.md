@@ -1,7 +1,21 @@
-RUN VANILLA OSX (10.15.4) on AMD Athlon 200GE with Open Core Bootloader
+# Vanilla OSX on AMD Athlon 200GE
 
-AMD Athlon 200GE with Radeon Vega Graphics
-Gigabyte A320M-S2H Motherboard
-Kingston HyperX Fury DDR4 RAM
-Kinston UV400 SSDNowr
-MSI Aero ITX RX 560 OC
+This EFI folder uses Opencore 0.5.6 bootloader
+
+  - You need to change the SMBIOS as it may have been used already
+  - Might work for other 17h CPUs
+
+# Whats Working
+
+  - onboard LAN
+  - onboard Audio (except microphone)
+  - iServices(Facetime should work if you have a webcam)
+  - Sleep/Wake
+  - Siri
+
+# My Actual PC Specs
+  - AMD Athlon 200GE Processor overclocked to 4.0GHz
+  - Gigabyte A320m-S2H motherboard
+  - Kingston HyperX Fury DDR4 RAM 4GBx2 overclocked to 2766MHz
+  - Kingston SSDNow UV400 240GB
+  - MSI Aero ITX RX 560 2GB OC
