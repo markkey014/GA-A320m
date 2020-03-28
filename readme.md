@@ -19,3 +19,5 @@ This EFI folder uses Opencore 0.5.6 bootloader
   - Kingston HyperX Fury DDR4 RAM 4GBx2 overclocked to 2766MHz
   - Kingston SSDNow UV400 240GB
   - MSI Aero ITX RX 560 2GB OC
+
+You can update up to 10.15.4 using this EFI folder
