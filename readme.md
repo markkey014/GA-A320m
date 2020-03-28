@@ -21,4 +21,4 @@ This EFI folder uses Opencore 0.5.6 bootloader
 
 You can update up to 10.15.4 using this EFI folder.
 If you have any issues, feel free to contact me at u/khevinski014.
-Please note that I only have Athlon 200GE as of the moment, if you're having issues with your build use Google (it's free) or donate same specs build so I can help you further.
+Please note that I only have Athlon 200GE as of the moment, if you're having issues with your build other than the specs stated above, please use Google (it's free) or donate same specs build so I can help you further.
