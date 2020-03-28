@@ -6,7 +6,6 @@ This EFI folder uses Opencore 0.5.6 bootloader
   - Might work for other 17h CPUs
 
 # Whats Working
-
   - onboard LAN
   - onboard Audio (except microphone)
   - iServices(Facetime should work if you have a webcam)
@@ -21,3 +20,5 @@ This EFI folder uses Opencore 0.5.6 bootloader
   - MSI Aero ITX RX 560 2GB OC
 
 You can update up to 10.15.4 using this EFI folder
+If you have any issues, feel free to contact me at u/khevinski014
+Please note that I only have Athlon 200GE as of the moment, if you're having issues with your build use Google (it's free) or donate same specs build so I can help you further.
