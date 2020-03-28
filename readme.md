@@ -1,4 +1,4 @@
-<b>RUN VANILLA OSX on AMD Athlon 200GE with Open Core Bootloader <\b>
+RUN VANILLA OSX on AMD Athlon 200GE with Open Core Bootloader
 
 AMD Athlon 200GE with Radeon Vega Graphics
 Gigabyte A320M-S2H Motherboard
