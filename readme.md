@@ -7,9 +7,9 @@ This EFI folder uses Opencore 0.5.6 bootloader
 
 # Whats Working
   - onboard LAN
-  - onboard Audio (except microphone)
+  - onboard Audio (except front panel microphone)
   - iServices(Facetime should work if you have a webcam)
-  - Sleep/Wake
+  - Sleep/Wake up
   - Siri
 
 # My Actual PC Specs
@@ -22,3 +22,4 @@ This EFI folder uses Opencore 0.5.6 bootloader
 You can update up to 10.15.4 using this EFI folder.
 If you have any issues, feel free to contact me at u/khevinski014.
 Please note that I only have Athlon 200GE as of the moment, if you're having issues with your build other than the specs stated above, please use Google (it's free) or donate same specs build so I can help you further.
+You also need to change the SMBIOS for iServices to work as the one provided here might already be in use. GIYF!
