@@ -1,8 +1,5 @@
 # Vanilla OSX on Gigabyte A320m-S2h
 
-<s>This EFI folder uses Opencore 0.5.6 bootloader</s>
-This EFI folder uses Opencore 0.6.2 bootloader
-
   - You need to change the SMBIOS for iServices to work correctly
   - Might work for other 17h CPUs
 
