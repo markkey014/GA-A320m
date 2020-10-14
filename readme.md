@@ -1,7 +1,7 @@
 # Vanilla OSX on Gigabyte A320m-S2h
 
   - You need to change the SMBIOS for iServices to work correctly
-  - Might work for other 17h CPUs
+  - Might work for other 17h CPUs since Athlon 200GE and Ryzen CPUs share the same kernel patches
 
 # Whats Working
   - onboard LAN
