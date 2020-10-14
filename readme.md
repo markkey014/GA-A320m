@@ -1,6 +1,6 @@
-# Vanilla OSX on AMD Athlon 200GE
+# Vanilla OSX on Gigabyte A320m-S2h
 
-This EFI folder uses Opencore 0.5.6 bootloader
+<s>This EFI folder uses Opencore 0.5.6 bootloader</s>
 
   - You need to change the SMBIOS as it may have been used already
   - Might work for other 17h CPUs
