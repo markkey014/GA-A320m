@@ -8,17 +8,19 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
+				<string>SSDT-EC0.aml</string>
 				<key>Path</key>
 				<string>SSDT-EC0.aml</string>
+				<key>Enabled</key>
+				<true/>
 			</dict>
 		</array>
-		<key>Block</key>
-		<array/>
+		<key>Delete</key>
+		<array>
+		</array>
 		<key>Patch</key>
-		<array/>
+		<array>
+		</array>
 		<key>Quirks</key>
 		<dict>
 			<key>FadtEnableReset</key>
@@ -36,7 +38,24 @@
 	<key>Booter</key>
 	<dict>
 		<key>MmioWhitelist</key>
-		<array/>
+		<array>
+			<dict>
+				<key>Address</key>
+				<integer>4275159040</integer>
+				<key>Comment</key>
+				<string>Haswell: SB_RCBA is a 0x4 page memory region, containing SPI_BASE at 0x3800 (SPI_BASE_ADDRESS)</string>
+				<key>Enabled</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>Address</key>
+				<integer>4278190080</integer>
+				<key>Comment</key>
+				<string>Generic: PCI root is a 0x1000 page memory region used by some firmwares</string>
+				<key>Enabled</key>
+				<false/>
+			</dict>
+		</array>
 		<key>Quirks</key>
 		<dict>
 			<key>AvoidRuntimeDefrag</key>
@@ -52,210 +71,165 @@
 			<key>EnableSafeModeSlide</key>
 			<true/>
 			<key>EnableWriteUnprotector</key>
-			<true/>
+			<false/>
 			<key>ForceExitBootServices</key>
 			<false/>
-			<key>ProtectCsmRegion</key>
+			<key>ProtectMemoryRegions</key>
 			<false/>
 			<key>ProtectSecureBoot</key>
 			<false/>
+			<key>ProtectUefiServices</key>
+			<false/>
 			<key>ProvideCustomSlide</key>
 			<true/>
-			<key>SetupVirtualMap</key>
+			<key>ProvideMaxSlide</key>
+			<integer>0</integer>
+			<key>RebuildAppleMemoryMap</key>
 			<true/>
-			<key>ShrinkMemoryMap</key>
+			<key>SetupVirtualMap</key>
 			<false/>
 			<key>SignalAppleOS</key>
 			<false/>
+			<key>SyncRuntimePermissions</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
 	<dict>
 		<key>Add</key>
 		<dict>
-			<key>PciRoot(0x0)/Pci(0x1,0x2)/Pci(0x0,0x2)/Pci(0x7,0x0)/Pci(0x0,0x0)</key>
+			<key>PciRoot(0x0)/Pci(0x1,0x3)/Pci(0x0,0x2)/Pci(0x1,0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>built-in</key>
 				<data>AQ==</data>
 			</dict>
-			<key>PciRoot(0x0)/Pci(0x8,0x1)/Pci(0x0,0x6)</key>
+			<key>PciRoot(0x0)/Pci(0x8,0x1)/Pci(0x0,0x4)</key>
 			<dict>
-				<key>alc-layout-id</key>
-				<data>CwAAAA==</data>
+				<key>layout-id</key>
+				<data>AQAAAA==</data>
 			</dict>
 		</dict>
-		<key>Block</key>
-		<dict>
-			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
-			<array>
-				<string>MaximumBootBeepVolume</string>
-			</array>
-		</dict>
+		<key>Delete</key>
+		<dict/>
 	</dict>
 	<key>Kernel</key>
 	<dict>
 		<key>Add</key>
 		<array>
 			<dict>
-				<key>BundlePath</key>
-				<string>Lilu.kext</string>
 				<key>Comment</key>
 				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
 				<key>Enabled</key>
 				<true/>
+				<key>MinKernel</key>
+				<string></string>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/Lilu</string>
-				<key>MatchKernel</key>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>Lilu.kext</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string></string>
 				<key>MaxKernel</key>
 				<string></string>
-				<key>MinKernel</key>
-				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>VirtualSMC.kext</string>
-				<key>Comment</key>
-				<string></string>
 				<key>Enabled</key>
 				<true/>
+				<key>MinKernel</key>
+				<string></string>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VirtualSMC</string>
-				<key>MaxKernel</key>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>VirtualSMC.kext</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string></string>
-				<key>MinKernel</key>
+				<key>MaxKernel</key>
 				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>AppleALC.kext</string>
-				<key>Comment</key>
-				<string>Sound</string>
 				<key>Enabled</key>
 				<true/>
+				<key>MinKernel</key>
+				<string></string>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/AMDRyzenCPUPowerManagement</string>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>AMDRyzenCPUPowerManagement.kext</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+				<key>Enabled</key>
+				<true/>
+				<key>MinKernel</key>
+				<string></string>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AppleALC</string>
-				<key>MatchKernel</key>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>AppleALC.kext</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string></string>
 				<key>MaxKernel</key>
 				<string></string>
-				<key>MinKernel</key>
-				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>AppleMCEReporterDisabler.kext</string>
-				<key>Comment</key>
-				<string></string>
 				<key>Enabled</key>
 				<true/>
-				<key>ExecutablePath</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
 				<key>MinKernel</key>
 				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>NullCPUPowerManagement.kext</string>
-				<key>Comment</key>
-				<string>Sound</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/NullCPUPowerManagement</string>
-				<key>MatchKernel</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>RealtekRTL8111.kext</string>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/RealtekRTL8111</string>
-				<key>MaxKernel</key>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>RealtekRTL8111.kext</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string></string>
-				<key>MinKernel</key>
+				<key>MaxKernel</key>
 				<string></string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>WhateverGreen.kext</string>
-				<key>Comment</key>
-				<string>Video card</string>
 				<key>Enabled</key>
 				<true/>
+				<key>MinKernel</key>
+				<string></string>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/WhateverGreen</string>
-				<key>MatchKernel</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
+				<key>Arch</key>
+				<string>Any</string>
 				<key>BundlePath</key>
-				<string>SMCAMDProcessor.kext</string>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/SMCAMDProcessor</string>
-				<key>MatchKernel</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>BundlePath</key>
-				<string>MacProMemoryNotificationDisabler.kext</string>
-				<key>Comment</key>
-				<string></string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/MacProMemoryNotificationDisabler</string>
-				<key>MatchKernel</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
+				<string>WhateverGreen.kext</string>
 			</dict>
 		</array>
 		<key>Block</key>
 		<array>
 			<dict>
+				<key>Arch</key>
+				<string>Any</string>
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
@@ -274,6 +248,73 @@
 			<data></data>
 			<key>Cpuid1Mask</key>
 			<data></data>
+		</dict>
+		<key>Force</key>
+		<array>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>System/Library/Extensions/IONetworkingFamily.kext</string>
+				<key>Comment</key>
+				<string>Patch engine</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Identifier</key>
+				<string>com.apple.iokit.IONetworkingFamily</string>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/IONetworkingFamily</string>
+				<key>MaxKernel</key>
+				<string>13.99.99</string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+		</array>
+		<key>Quirks</key>
+		<dict>
+			<key>AppleCpuPmCfgLock</key>
+			<false/>
+			<key>AppleXcpmCfgLock</key>
+			<false/>
+			<key>AppleXcpmExtraMsrs</key>
+			<false/>
+			<key>AppleXcpmForceBoost</key>
+			<false/>
+			<key>CustomSMBIOSGuid</key>
+			<false/>
+			<key>DisableIoMapper</key>
+			<false/>
+			<key>DisableLinkeditJettison</key>
+			<true/>
+			<key>DisableRtcChecksum</key>
+			<false/>
+			<key>DummyPowerManagement</key>
+			<true/>
+			<key>ExternalDiskIcons</key>
+			<false/>
+			<key>IncreasePciBarSize</key>
+			<false/>
+			<key>LapicKernelPanic</key>
+			<false/>
+			<key>PanicNoKextDump</key>
+			<false/>
+			<key>PowerTimeoutKernelPanic</key>
+			<false/>
+			<key>ThirdPartyDrives</key>
+			<false/>
+			<key>XhciPortLimit</key>
+			<false/>
+		</dict>
+		<key>Scheme</key>
+		<dict>
+			<key>FuzzyMatch</key>
+			<true/>
+			<key>KernelArch</key>
+			<string>x86_64</string>
+			<key>KernelCache</key>
+			<string>Auto</string>
 		</dict>
 		<key>Patch</key>
 		<array>
@@ -295,7 +336,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -323,7 +364,7 @@
 				<key>Mask</key>
 				<data>/wAA//8=</data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -337,7 +378,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - cpuid_set_cache_info - cpuid 0x8000001D instead 0 - 10.15</string>
+				<string>algrey - cpuid_set_cache_info - cpuid 0x8000001D instead 0 - 10.15/10.16</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -351,7 +392,7 @@
 				<key>Mask</key>
 				<data>/////////////////wAAAAAA////</data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>19.0.0</string>
 				<key>Replace</key>
@@ -365,7 +406,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - cpuid_set_cache_info - cpuid 0x8000001D instead 0</string>
+				<string>algrey - cpuid_set_cache_info - cpuid 0x8000001D instead 0 - 10.13/10.14</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -407,7 +448,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -435,7 +476,7 @@
 				<key>Mask</key>
 				<data>//D///A=</data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -449,21 +490,21 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - - skip cpuid_cores_per_package test -10.15</string>
+				<string>NoOne - skip cpuid_cores_per_package test - 10.15/10.16</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>gz0AAAAAAA8AAAAAAItdvA==</data>
+				<data>gz0AAAAAAA8AAAAAAIsAvA==</data>
 				<key>Identifier</key>
 				<string>kernel</string>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data>//8AAAD///8AAAAA/////w==</data>
+				<data>//8AAAD///8AAAAA//8A/w==</data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>19.0.0</string>
 				<key>Replace</key>
@@ -477,7 +518,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - - skip cpuid_cores_per_package test</string>
+				<string>algrey - skip cpuid_cores_per_package test - 10.13/10.14</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -519,7 +560,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -547,7 +588,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -575,7 +616,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -603,7 +644,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -617,7 +658,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - cpuid_set_info - GenuineIntel to AuthenticAMD </string>
+				<string>algrey - cpuid_set_info - GenuineIntel to AuthenticAMD</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -631,7 +672,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -651,7 +692,7 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>MduAPQAAAAAGdVw=</data>
+				<data>MduAPQAAAAAGdQA=</data>
 				<key>Identifier</key>
 				<string>kernel</string>
 				<key>Limit</key>
@@ -659,7 +700,7 @@
 				<key>Mask</key>
 				<data>/////wAAAP///wA=</data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -673,7 +714,7 @@
 				<key>Base</key>
 				<string>_cpuid_set_info</string>
 				<key>Comment</key>
-				<string>algrey - cpuid_set_info - jmp to calculations and set cpuid_cores_per_package - 10.15</string>
+				<string>algrey - cpuid_set_info - jmp to calculations and set cpuid_cores_per_package - 10.15/10.16</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -687,7 +728,7 @@
 				<key>Mask</key>
 				<data>////AAAAAP///wAAAAD///8AAAAA</data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>19.0.0</string>
 				<key>Replace</key>
@@ -701,7 +742,7 @@
 				<key>Base</key>
 				<string>_cpuid_set_info</string>
 				<key>Comment</key>
-				<string>algrey - cpuid_set_info - cores and threads calculations - 10.15</string>
+				<string>algrey - cpuid_set_info - cores and threads calculations - 10.15/10.16</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -715,7 +756,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>19.0.0</string>
 				<key>Replace</key>
@@ -785,7 +826,7 @@
 				<key>Base</key>
 				<string>_cpuid_set_info</string>
 				<key>Comment</key>
-				<string>algrey - cpuid_set_info - ryzen cores and logicals count - part 2</string>
+				<string>algrey - cpuid_set_info - ryzen cores and logicals count - part 2 - 10.13/10.14</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -939,7 +980,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -953,7 +994,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - tsc_init - remove Penryn check to execute default case 10.14.1-.3</string>
+				<string>algrey - tsc_init - remove Penryn check to execute default case 10.14</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -995,7 +1036,7 @@
 				<key>Mask</key>
 				<data>/////////wD///8=</data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -1023,7 +1064,7 @@
 				<key>Mask</key>
 				<data>////////////////////////////AAAA////////AAAA/w==</data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -1051,7 +1092,7 @@
 				<key>Mask</key>
 				<data></data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -1093,7 +1134,35 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - lapic_init - remove version check and panic</string>
+				<string>NoOne - lapic_init - remove version check and panic - 10.16</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>g/gTD4aBAAAA</data>
+				<key>Identifier</key>
+				<string>kernel</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>MaxKernel</key>
+				<string>20.99.99</string>
+				<key>MinKernel</key>
+				<string>20.0.0</string>
+				<key>Replace</key>
+				<data>kJCQkJCQkJCQ</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>Comment</key>
+				<string>algrey - lapic_init - remove version check and panic - 10.13/10.14</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -1121,7 +1190,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>algrey - lapic_interrupt - skip checks and prevent panic - 10.15</string>
+				<string>algrey - lapic_interrupt - skip checks and prevent panic - 10.15/10.16</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -1135,7 +1204,7 @@
 				<key>Mask</key>
 				<data>//8AAAD/////</data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>19.0.0</string>
 				<key>Replace</key>
@@ -1149,7 +1218,7 @@
 				<key>Base</key>
 				<string>_lapic_interrupt</string>
 				<key>Comment</key>
-				<string>algrey - lapic_interrupt - skip checks and prevent panic</string>
+				<string>algrey - lapic_interrupt - skip checks and prevent panic - 10.13/10.14</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -1191,7 +1260,7 @@
 				<key>Mask</key>
 				<data>////////D////////////////w==</data>
 				<key>MaxKernel</key>
-				<string>19.99.99</string>
+				<string>20.99.99</string>
 				<key>MinKernel</key>
 				<string>17.0.0</string>
 				<key>Replace</key>
@@ -1202,58 +1271,28 @@
 				<integer>0</integer>
 			</dict>
 		</array>
-		<key>Quirks</key>
-		<dict>
-			<key>AppleCpuPmCfgLock</key>
-			<false/>
-			<key>AppleXcpmCfgLock</key>
-			<false/>
-			<key>AppleXcpmExtraMsrs</key>
-			<false/>
-			<key>AppleXcpmForceBoost</key>
-			<false/>
-			<key>CustomSMBIOSGuid</key>
-			<false/>
-			<key>DisableIoMapper</key>
-			<false/>
-			<key>DummyPowerManagement</key>
-			<false/>
-			<key>ExternalDiskIcons</key>
-			<false/>
-			<key>IncreasePciBarSize</key>
-			<false/>
-			<key>LapicKernelPanic</key>
-			<false/>
-			<key>PanicNoKextDump</key>
-			<false/>
-			<key>PowerTimeoutKernelPanic</key>
-			<false/>
-			<key>ThirdPartyDrives</key>
-			<false/>
-			<key>XhciPortLimit</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>Misc</key>
 	<dict>
 		<key>BlessOverride</key>
-		<array/>
+		<array>
+		</array>
 		<key>Boot</key>
 		<dict>
+			<key>ConsoleAttributes</key>
+			<integer>0</integer>
 			<key>HibernateMode</key>
 			<string>None</string>
 			<key>HideAuxiliary</key>
 			<false/>
-			<key>HideSelf</key>
-			<true/>
 			<key>PickerAttributes</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>PickerAudioAssist</key>
-			<false/>
+			<true/>
 			<key>PickerMode</key>
-			<string>Builtin</string>
+			<string>External</string>
 			<key>PollAppleHotKeys</key>
-			<false/>
+			<true/>
 			<key>ShowPicker</key>
 			<true/>
 			<key>TakeoffDelay</key>
@@ -1263,14 +1302,22 @@
 		</dict>
 		<key>Debug</key>
 		<dict>
-			<key>DisableWatchDog</key>
+			<key>AppleDebug</key>
 			<false/>
+			<key>ApplePanic</key>
+			<false/>
+			<key>DisableWatchDog</key>
+			<true/>
 			<key>DisplayDelay</key>
 			<integer>0</integer>
 			<key>DisplayLevel</key>
 			<integer>2147483650</integer>
+			<key>SerialInit</key>
+			<false/>
+			<key>SysReport</key>
+			<false/>
 			<key>Target</key>
-			<integer>0</integer>
+			<integer>3</integer>
 		</dict>
 		<key>Entries</key>
 		<array>
@@ -1294,47 +1341,201 @@
 			<key>AllowNvramReset</key>
 			<true/>
 			<key>AllowSetDefault</key>
-			<false/>
+			<true/>
+			<key>ApECID</key>
+			<integer>0</integer>
 			<key>AuthRestart</key>
+			<false/>
+			<key>BootProtect</key>
+			<string>Bootstrap</string>
+			<key>DmgLoading</key>
+			<string>Signed</string>
+			<key>EnablePassword</key>
 			<false/>
 			<key>ExposeSensitiveData</key>
 			<integer>8</integer>
 			<key>HaltLevel</key>
 			<integer>2147483648</integer>
+			<key>PasswordHash</key>
+			<data></data>
+			<key>PasswordSalt</key>
+			<data></data>
 			<key>ScanPolicy</key>
-			<integer>983299</integer>
+			<integer>0</integer>
+			<key>SecureBootModel</key>
+			<string>Default</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
 		<key>Tools</key>
 		<array>
 			<dict>
+				<key>Comment</key>
+				<string>BootKicker.efi</string>
+				<key>Name</key>
+				<string>BootKicker.efi</string>
+				<key>Enabled</key>
+				<true/>
 				<key>Arguments</key>
 				<string></string>
-				<key>Auxiliary</key>
-				<false/>
-				<key>Comment</key>
-				<string>Not signed for security reasons</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Name</key>
-				<string>UEFI Shell</string>
 				<key>Path</key>
-				<string>Shell.efi</string>
+				<string>BootKicker.efi</string>
+				<key>Auxiliary</key>
+				<true/>
 			</dict>
 			<dict>
+				<key>Comment</key>
+				<string>ChipTune.efi</string>
+				<key>Name</key>
+				<string>ChipTune.efi</string>
+				<key>Enabled</key>
+				<true/>
 				<key>Arguments</key>
 				<string></string>
-				<key>Auxiliary</key>
-				<false/>
-				<key>Comment</key>
-				<string>Memory testing utility</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Name</key>
-				<string>memcheck</string>
 				<key>Path</key>
-				<string>memcheck/memcheck.efi</string>
+				<string>ChipTune.efi</string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>CleanNvram.efi</string>
+				<key>Name</key>
+				<string>CleanNvram.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+				<key>Path</key>
+				<string>CleanNvram.efi</string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>GopStop.efi</string>
+				<key>Name</key>
+				<string>GopStop.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+				<key>Path</key>
+				<string>GopStop.efi</string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HdaCodecDump.efi</string>
+				<key>Name</key>
+				<string>HdaCodecDump.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+				<key>Path</key>
+				<string>HdaCodecDump.efi</string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>KeyTester.efi</string>
+				<key>Name</key>
+				<string>KeyTester.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+				<key>Path</key>
+				<string>KeyTester.efi</string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>MmapDump.efi</string>
+				<key>Name</key>
+				<string>MmapDump.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+				<key>Path</key>
+				<string>MmapDump.efi</string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>OpenControl.efi</string>
+				<key>Name</key>
+				<string>OpenControl.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+				<key>Path</key>
+				<string>OpenControl.efi</string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>OpenShell.efi</string>
+				<key>Name</key>
+				<string>OpenShell.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+				<key>Path</key>
+				<string>OpenShell.efi</string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>ResetSystem.efi</string>
+				<key>Name</key>
+				<string>ResetSystem.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+				<key>Path</key>
+				<string>ResetSystem.efi</string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>RtcRw.efi</string>
+				<key>Name</key>
+				<string>RtcRw.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+				<key>Path</key>
+				<string>RtcRw.efi</string>
+				<key>Auxiliary</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>VerifyMsrE2.efi</string>
+				<key>Name</key>
+				<string>VerifyMsrE2.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Arguments</key>
+				<string></string>
+				<key>Path</key>
+				<string>VerifyMsrE2.efi</string>
+				<key>Auxiliary</key>
+				<true/>
 			</dict>
 		</array>
 	</dict>
@@ -1347,32 +1548,42 @@
 				<key>DefaultBackgroundColor</key>
 				<data>AAAAAA==</data>
 				<key>UIScale</key>
-				<data>AQ==</data>
+				<data>Ag==</data>
+			</dict>
+			<key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
+			<dict>
+				<key>rtc-blacklist</key>
+				<data></data>
 			</dict>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>debug=0x100 keepsyms=1 alcid=11 npci=0x2000 -v</string>
+				<string></string>
+				<key>run-efi-updater</key>
+				<string>No</string>
 				<key>csr-active-config</key>
-				<data>5wMAAA==</data>
-				<key>nvda_drv</key>
-				<data></data>
+				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
-				<data>cnUtUlU6MjUy</data>
+				<string>en-US:0</string>
 			</dict>
 		</dict>
-		<key>Block</key>
+		<key>Delete</key>
 		<dict>
 			<key>4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14</key>
 			<array>
 				<string>UIScale</string>
 				<string>DefaultBackgroundColor</string>
 			</array>
+			<key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
+			<array>
+				<string>rtc-blacklist</string>
+			</array>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<array>
 				<string>boot-args</string>
+				<string>csr-active-config</string>
 			</array>
 		</dict>
 		<key>LegacyEnable</key>
@@ -1406,7 +1617,7 @@
 			</array>
 		</dict>
 		<key>WriteFlash</key>
-		<false/>
+		<true/>
 	</dict>
 	<key>PlatformInfo</key>
 	<dict>
@@ -1414,18 +1625,20 @@
 		<true/>
 		<key>Generic</key>
 		<dict>
+			<key>AdviseWindows</key>
+			<false/>
 			<key>MLB</key>
-			<string>C02921108GUJG36FB</string>
+			<string></string>
 			<key>ROM</key>
-			<string>C07EBFC3AFFF</string>
+			<data></data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemProductName</key>
-			<string>iMacPro1,1</string>
+			<string></string>
 			<key>SystemSerialNumber</key>
-			<string>C02YR9Z2HX87</string>
+			<string></string>
 			<key>SystemUUID</key>
-			<string>9156F2D6-030C-4FDD-87DE-E4C3673CB996</string>
+			<string></string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -1438,34 +1651,51 @@
 	</dict>
 	<key>UEFI</key>
 	<dict>
+		<key>APFS</key>
+		<dict>
+			<key>EnableJumpstart</key>
+			<true/>
+			<key>GlobalConnect</key>
+			<false/>
+			<key>HideVerbose</key>
+			<true/>
+			<key>JumpstartHotPlug</key>
+			<false/>
+			<key>MinDate</key>
+			<integer>0</integer>
+			<key>MinVersion</key>
+			<integer>0</integer>
+		</dict>
 		<key>Audio</key>
 		<dict>
 			<key>AudioCodec</key>
 			<integer>0</integer>
 			<key>AudioDevice</key>
-			<string>PciRoot(0x0)/Pci(0x8,0x1)/Pci(0x0,0x6)</string>
+			<string>PciRoot(0x0)/Pci(0x8,0x1)/Pci(0x0,0x4)</string>
 			<key>AudioOut</key>
 			<integer>0</integer>
 			<key>AudioSupport</key>
-			<false/>
+			<true/>
 			<key>MinimumVolume</key>
-			<integer>20</integer>
+			<integer>40</integer>
 			<key>PlayChime</key>
-			<false/>
+			<true/>
 			<key>VolumeAmplifier</key>
-			<integer>0</integer>
+			<integer>130</integer>
 		</dict>
 		<key>ConnectDrivers</key>
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>ApfsDriverLoader.efi</string>
-			<string>FwRuntimeServices.efi</string>
-			<string>VirtualSmc.efi</string>
-			<string>HFSPlus.efi</string>
+			<string>AudioDxe.efi</string>
+			<string>HfsPlus.efi</string>
+			<string>OpenCanopy.efi</string>
+			<string>OpenRuntime.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
+			<key>KeyFiltering</key>
+			<false/>
 			<key>KeyForgetThreshold</key>
 			<integer>5</integer>
 			<key>KeyMergeThreshold</key>
@@ -1505,21 +1735,33 @@
 			<false/>
 			<key>TextRenderer</key>
 			<string>BuiltinGraphics</string>
+			<key>UgaPassThrough</key>
+			<false/>
 		</dict>
-		<key>Protocols</key>
+		<key>ProtocolOverrides</key>
 		<dict>
 			<key>AppleAudio</key>
-			<false/>
+			<true/>
 			<key>AppleBootPolicy</key>
+			<false/>
+			<key>AppleDebugLog</key>
 			<false/>
 			<key>AppleEvent</key>
 			<false/>
+			<key>AppleFramebufferInfo</key>
+			<false/>
 			<key>AppleImageConversion</key>
+			<false/>
+			<key>AppleImg4Verification</key>
 			<false/>
 			<key>AppleKeyMap</key>
 			<false/>
-			<key>AppleSmcIo</key>
+			<key>AppleRtcRam</key>
 			<false/>
+			<key>AppleSecureBoot</key>
+			<false/>
+			<key>AppleSmcIo</key>
+			<true/>
 			<key>AppleUserInterfaceTheme</key>
 			<false/>
 			<key>DataHub</key>
@@ -1527,7 +1769,7 @@
 			<key>DeviceProperties</key>
 			<false/>
 			<key>FirmwareVolume</key>
-			<false/>
+			<true/>
 			<key>HashServices</key>
 			<false/>
 			<key>OSInfo</key>
@@ -1537,19 +1779,24 @@
 		</dict>
 		<key>Quirks</key>
 		<dict>
+			<key>DeduplicateBootOrder</key>
+			<true/>
 			<key>ExitBootServicesDelay</key>
 			<integer>0</integer>
 			<key>IgnoreInvalidFlexRatio</key>
 			<false/>
 			<key>ReleaseUsbOwnership</key>
 			<false/>
-			<key>RequestBootVarFallback</key>
-			<false/>
 			<key>RequestBootVarRouting</key>
 			<true/>
+			<key>TscSyncTimeout</key>
+			<integer>0</integer>
 			<key>UnblockFsConnect</key>
 			<false/>
 		</dict>
+		<key>ReservedMemory</key>
+		<array>
+		</array>
 	</dict>
 </dict>
 </plist>
