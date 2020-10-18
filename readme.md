@@ -5,7 +5,7 @@
 
 # Whats Working
   - onboard LAN
-  - onboard Audio (except front panel microphone)
+  - onboard Audio
   - iServices(Facetime should work if you have a webcam)
   - Sleep/Wake up
   - Siri
